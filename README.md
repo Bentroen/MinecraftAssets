@@ -28,11 +28,9 @@ Although the goal of our approach applies primarily to the game's sounds, it can
 
 As the Minecraft version data is structured currently, the [`version_manifest.json`](https://piston-meta.mojang.com/mc/game/version_manifest_v2.json) stores every version ever released, along with a URL of a manifest JSON that stores the data for a particular version.
 
-In each version's manifest, along with libraries and other data used by the launcher, there's an `assetIndex` field that stores the name and the URL of the asset index for that version. The asset index stores all the asset objects in that version: the path to the asset in the game's files, the object's MD5 hash, and its size. The objects themselves can be downloaded from the server using the hash.
+In each version's manifest, along with libraries and other data used by the launcher, there's an `assetIndex` field that stores the name and the URL of the asset index for that version. The asset index stores all the asset objects in that version: the path to the asset in the game's files, the object's MD5 hash, and its size. The objects themselves can be downloaded from the server using the hash (`https://resources.download.minecraft.net/<first two characters of hash>/<full hash>`) and are stored in the `objects` folder in the game's files.
 
 New asset indexes are introduced every time there's a major change in the assets, and although they are now more predictable, they seem to have been introduced more arbitrarily in past versions. The motivation behind this repository was to investigate in which versions asset indexes were introduced, and what assets were changed between versions.
-
-The asset index stores the hash of every asset in that version, and the asset itself is stored in the `assets` folder.
 
 ## Usage
 
