@@ -26,7 +26,7 @@ Although the goal of our approach applies primarily to the game's sounds, it can
 
 ## Structure
 
-As the Minecraft version data is structured currently, the `version_manifest.json` stores every version ever released, along with a URL of a manifest JSON that stores the data for a particular version.
+As the Minecraft version data is structured currently, the [`version_manifest.json`](https://piston-meta.mojang.com/mc/game/version_manifest_v2.json) stores every version ever released, along with a URL of a manifest JSON that stores the data for a particular version.
 
 In each version's manifest, along with libraries and other data used by the launcher, there's an `assetIndex` field that stores the name and the URL of the asset index for that version. The asset index stores all the asset objects in that version: the path to the asset in the game's files, the object's MD5 hash, and its size. The objects themselves can be downloaded from the server using the hash.
 
