@@ -34,11 +34,11 @@ New asset indexes are introduced every time there's a major change in the assets
 
 ## Usage
 
-### `download_manifests.py`
+### [`download_manifests.py`](download_manifests.py)
 
 This script downloads the `version_manifest.json` file from Mojang's servers, then downloads the manifests for all versions and saves it to the `manifest` folder.
 
-### `list_asset_indexes.py`
+### [`list_asset_indexes.py`](list_asset_indexes.py)
 
 > [!IMPORTANT]
 > This script depends on `download_manifests.py` being run first.
@@ -49,14 +49,14 @@ This script reads the `version_manifest.json` file and prints a list of unique a
 -   `asset_indexes_grouped.json`: a map of all the asset indexes to the versions that use them.
 -   `asset_indexes_grouped_nosnapshots.json`: the same as above, but containing only official releases.
 
-### `get_asset_indexes.py`
+### [`get_asset_indexes.py`](get_asset_indexes.py)
 
 > [!IMPORTANT]
 > This script depends on `download_manifests.py` being run first.
 
 This version reads each version's data from the `manifest` folder and downloads the asset indexes to the `asset_indexes` folder. By sorting the asset index by the earliest version it appears in, we can build a chronological list of asset indexes. The asset indexes are then saved again to the `asset_indexes_by_date` folder, in the format `YYYY-MM-DD_index.json`.
 
-### `diff.py`
+### [`diff.py`](diff.py)
 
 > [!IMPORTANT]
 > This script depends on `get_asset_indexes.py` being run first.
@@ -76,14 +76,14 @@ This script reads a pair of subsequent asset indexes and compares them, outputti
 
 This script reads all the asset indexes and downloads all sound objects to the `objects` folder. It also counts the total number of sound assets, total number of references, and number of unique references in each asset index, and in total (across all versions).
 
-### `sound_tree.py`
+### [`sound_tree.py`](sound_tree.py)
 
 > [!IMPORTANT]
 > This script depends on `get_sounds.py` being run first.
 
 This script reads the asset index of the latest Minecraft release and creates a tree structure of all the sounds in the game, based on their paths. The tree is saved to `sound_tree.json`.
 
-### `asset_index_friendly_names.txt`
+### [`asset_index_friendly_names.json`](asset_index_friendly_names.json)
 
 This is a list of friendly names for all currently released asset indexes (`17` being the latest as of this repository's creation).
 
