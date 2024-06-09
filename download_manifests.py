@@ -7,6 +7,11 @@ import json
 import shutil
 import sys
 import requests
+from pathlib import Path
+
+# Create a folder called 'files'
+if not shutil.os.path.exists("files"):
+    shutil.os.makedirs("files")
 
 # Make a request to the version manifest
 manifest = requests.get(
@@ -17,7 +22,7 @@ latest_release = manifest_data["latest"]["release"]
 version_manifest = manifest_data["versions"]
 
 # Save the version manifest to a file
-with open("version_manifest.json", "w") as f:
+with open(Path("files", "version_manifest.json"), "w") as f:
     json.dump(manifest_data, f, indent=4)
 
 print(f"The latest release version of Minecraft: Java Edition is {latest_release}.")

@@ -2,6 +2,7 @@ import json
 import shutil
 import sys
 import requests
+from pathlib import Path
 
 
 asset_indexes = {}
@@ -9,7 +10,7 @@ asset_indexes_grouped = {}
 
 
 # Load version manifest
-with open("version_manifest.json", "r") as f:
+with open(Path("files", "version_manifest.json"), "r") as f:
     version_manifest = json.load(f)
 
 
@@ -35,10 +36,13 @@ for version in shutil.os.listdir("manifest"):
     asset_indexes[version] = asset_index
 
 
-with open("asset_indexes_grouped.json", "w") as f:
+if not Path("files").exists():
+    Path("files").mkdir()
+
+with open(Path("files", "asset_indexes_grouped.json"), "w") as f:
     json.dump(asset_indexes_grouped, f, indent=4)
 
-with open("asset_indexes.json", "w") as f:
+with open(Path("files", "asset_indexes.json"), "w") as f:
     json.dump(asset_indexes, f, indent=4)
 
 
@@ -59,5 +63,5 @@ for group, group_versions in asset_indexes_grouped.items():
 
         asset_indexes_grouped_nosnapshots[group].append(version)
 
-with open("asset_indexes_grouped_nosnapshots.json", "w") as f:
+with open(Path("files", "asset_indexes_grouped_nosnapshots.json"), "w") as f:
     json.dump(asset_indexes_grouped_nosnapshots, f, indent=4)
