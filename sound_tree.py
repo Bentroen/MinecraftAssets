@@ -64,3 +64,27 @@ with open(Path("files", "sound_index_keys.json"), "w") as f:
 
 
 # Build a tree index of all sounds
+def build_tree(current_root, path_parts):
+    if len(path_parts) == 1:
+        # If it's the last part, insert into a list
+        if "_files" not in current_root:
+            current_root["_files"] = []
+        current_root["_files"].append(path_parts[0])
+    else:
+        if path_parts[0] not in current_root:
+            current_root[path_parts[0]] = {}
+        build_tree(current_root[path_parts[0]], path_parts[1:])
+
+
+with open(Path("files", "sound_list.json"), "r") as f:
+    sounds: dict[str, str] = json.load(f)
+file_paths = list(sounds.keys())
+
+tree = {}
+
+for path in file_paths:
+    parts = path.split("/")
+    build_tree(tree, parts)
+
+with open(Path("files", "sound_tree.json"), "w") as f:
+    json.dump(tree, f, indent=4)
