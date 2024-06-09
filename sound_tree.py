@@ -35,7 +35,8 @@ for path, hash in sounds.items():
 
     search_key = path
 
-    search_key = search_key.strip("0123456789")
+    if not search_key.strip("0123456789").endswith("/"):  # 5, 11 and 13 are disc names
+        search_key = search_key.strip("0123456789")
     search_key = search_key.strip("_")
     parts = search_key.split("/")
 
