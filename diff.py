@@ -35,8 +35,11 @@ def print_and_write(
 prev_file = None
 prev_objects = None
 
-diff_file = open("diff.txt", "w")
-diff_summary = open("diff_summary.txt", "w")
+if not shutil.os.path.exists("diffs"):
+    shutil.os.makedirs("diffs")
+
+diff_file = open(Path("diffs", "diff.txt"), "w")
+diff_summary = open(Path("diffs", "diff_summary.txt"), "w")
 
 summary = {}
 
