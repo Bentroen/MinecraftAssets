@@ -34,7 +34,7 @@ In each version's manifest (e.g. [1.20.5.json](https://piston-meta.mojang.com/v1
 https://resources.download.minecraft.net/<first two characters of hash>/<full hash>
 ```
 
-New asset indexes are introduced every time there's a major change in the assets, and although they are now more predictable, they seem to have been introduced more arbitrarily in past versions. The motivation behind this repository was to investigate in which versions asset indexes were introduced, and what assets were changed between versions.
+New asset indexes are introduced every time there's a major change in the assets, and although they are now more predictable (a number which increments at the start of a release cycle), they seem to have been introduced more arbitrarily in past versions. The motivation behind this repository was to investigate in which versions asset indexes were introduced, and what assets were changed between versions.
 
 ## Limitations
 
