@@ -20,7 +20,7 @@ Additionally, many sounds which are the same in two different versions of the ga
 
 The purpose of this repository is to investigate the changes in Minecraft assets over time by analyzing the asset indexes of different versions of the game. Based on this, we aim to create a format that allows for easy querying of asset data across different versions.
 
-Ultimately, the end goal is to have a stable, fixed, predictable reference to every version of a sound asset ever introduced to the game, such that a song never sounds different according to when it's being viewed at, due to a version of Minecraft replacing a particular sound (see e.g. the piston sound change in 24w20a).
+Ultimately, the end goal is to have a stable, fixed, predictable reference to every version of a sound asset ever introduced to the game, such that a song never sounds different according to when it's being viewed at, due to a version of Minecraft replacing a particular sound (see e.g. the controversial [piston sound change in 24w20a](https://minecraft.wiki/w/Java_Edition_24w20a#Sounds)).
 
 Although the goal of our approach applies primarily to the game's sounds, it can be later expanded to include other assets, such as textures, models, and language files.
 
