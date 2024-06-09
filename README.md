@@ -36,6 +36,16 @@ https://resources.download.minecraft.net/<first two characters of hash>/<full ha
 
 New asset indexes are introduced every time there's a major change in the assets, and although they are now more predictable, they seem to have been introduced more arbitrarily in past versions. The motivation behind this repository was to investigate in which versions asset indexes were introduced, and what assets were changed between versions.
 
+## Limitations
+
+This doesn't include sounds from classic Minecraft that are not present in the current game. These files are not available from the current resource system, so they can't be downloaded from the game's servers, and have been replaced even in older game versions downloaded from the launcher (although they can be found online in community-made resource packs, such as [this one](https://www.planetminecraft.com/texture-pack/old-sounds-4911323/)).
+
+It also doesn't include sounds that are still downloadable from the game's servers, but for which there are no pointers in any asset index. One such example is the piston sound, which was [changed in the 24w20a snapshot](https://minecraft.wiki/w/Java_Edition_24w20a#Sounds), then [changed again in 24w21a](https://minecraft.wiki/w/Java_Edition_24w21a#Blocks). As both versions share the same asset index, the reference to the asset in 24w20a was replaced entirely (i.e. downloading 20w24a now yields the _new_ version of the sound), so it's no longer possible to get their download URL from the procedure above, even though they are still available from the game's servers (e.g. `tile/piston/in`: `https://resources.download.minecraft.net/2f/2faade0f2de6cf7414e021c6231cf662095062fa`).
+
+To make these sounds available in the proposed system, it would be necessary to manually add them under a special category, and then host the files ourselves. For sounds that are still available from the game's servers, the [mcasset.cloud](https://mcasset.cloud/) project provides a historical view of versions, since they are scraped as soon as they are released - for instance, the aforementioned piston sound can be found [here](https://mcasset.cloud/24w20a/assets/minecraft/sounds/tile/piston). So, in theory, it should be possible to compare all versions stored in the repository to "catch" unlisted changes to the assets, calculate the replaced asset's hash and look it up in the resource server, replacing them in that version's asset index.
+
+There are still limits to this source though, as 1) we can't guarantee that all versions have been scraped before an asset was replaced (especially versions from before the project's inception), and 2) we can't guarantee that the project will be maintained indefinitely. The [Minecraft Wiki](https://minecraft.wiki/) is also a valuable source in tracking changes to the sounds, but then again, it's not a complete source, and it's not structured in a way that would allow for easy querying of the data. This then becomes more an archival project than a data structuring project, which is not our primary goal.
+
 ## Usage
 
 ### [`download_manifests.py`](download_manifests.py)
