@@ -81,7 +81,12 @@ This script reads all the asset indexes and downloads all sound objects to the `
 > [!IMPORTANT]
 > This script depends on `get_sounds.py` being run first.
 
-This script reads the asset index of the latest Minecraft release and creates a tree structure of all the sounds in the game, based on their paths. The tree is saved to `sound_tree.json`.
+This script reads the asset index of the latest Minecraft release and creates three files:
+
+-   `sound_list.json`: a map of all the sounds in th mapping the path where they are located to their hash. Useful for downloading a sound from the game's server by its path.
+-   `sound_index_words.json`: a map of all unique words that appear in the sound paths (minus the `minecraft/sounds/` prefix) to the sounds that contain them. Useful for searching for a sound by a keyword, e.g. `piston` or `cave`.
+-   `sound_index_keys.json`: a list of the keys in `sound_index_words.json`.
+-   `sound_tree.json`: a tree structure of all the sounds in the game, based on their paths.
 
 ### [`asset_index_friendly_names.json`](asset_index_friendly_names.json)
 
