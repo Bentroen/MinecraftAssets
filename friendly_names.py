@@ -11,6 +11,8 @@ substitutions = {
     "/additions/": "/",
     "/tile/": "",
     "/ui/": "",
+    "/fire/": "fire/",
+    "/fireworks/": "firework_rocket/",
     "/random/glass_": "glass/break_",
     "/random/anvil_": "anvil/",
     "/random/": "",
@@ -33,8 +35,7 @@ substitutions = {
     "/music/game/end/": "music/",
     "/music/game/": "music/",
     "/music/menu/": "music/",
-    "/event": "",
-    "/event/mob_effects": "",
+    "/event/": "",
     # Note blocks
     "/harp": "/harp",
     "/bass": "/bass",
@@ -47,10 +48,10 @@ substitutions = {
     # Repeated words
     "guardian/elder": "elder_guardian",
     "guardian_": "",
-    "elytra/elytra": "elytra",
+    "elytra/elytra_": "elytra/",
     "dye/dye": "dye/use",
-    "brush/brushing": "brush",
-    "brush/brush": "brush",
+    "brush/brushing_": "brush/",
+    "brush/brush_": "brush/",
     "bonemeal/bonemeal": "bonemeal",
     "player/hurt": "player",
     "endereye/endereye": "endereye",
@@ -69,6 +70,7 @@ substitutions = {
     "ink_sac/ink_sac": "ink_sac",
     "fire/fire": "fire/crackle",
     "soulspeed/soulspeed": "soulspeed",
+    "totem/use_totem": "totem/use",
     "fletching_table/fletching_table": "fletching_table",
     "bamboo_wood_button/bamboo_wood_button": "bamboo_wood_button",
     "underwater/underwater_ambience": "underwater > ambience",
@@ -86,9 +88,9 @@ substitutions = {
     "pre_sneeze": "pre-sneeze",
     "kill": "death",
     # Quick Charge
-    "quick_charge/quick1": "quick_charge_1",
-    "quick_charge/quick2": "quick_charge_2",
-    "quick_charge/quick3": "quick_charge_3",
+    "quick_charge/quick1": "quick_charge_i",
+    "quick_charge/quick2": "quick_charge_ii",
+    "quick_charge/quick3": "quick_charge_iii",
     # Word separation
     "magmacube": "magma cube",
     "irongolem": "iron golem",
@@ -158,6 +160,8 @@ caps = {
     " The ": " the ",
     " In ": " in ",
     " On ": " on ",
+    " Iii": " III",
+    " Ii": " II",
     "Otherside": "otherside",
     "Can'T": "Can't",
 }
@@ -176,7 +180,7 @@ for sound_name in sound_list:
     pretty = pretty.replace(".ogg", "")
 
     # Replace numbers in fireworks
-    if "fireworks" in pretty:
+    if "firework" in pretty:
         pretty = pretty.replace("1", "")
 
     # Replace leading zeros
@@ -187,9 +191,9 @@ for sound_name in sound_list:
 
     # Split numbers
     if "record" not in pretty:
-        if pretty[-2].isdigit():
+        if pretty[-2].isdigit() and pretty[-3] != "_":
             pretty = pretty[:-2] + " " + pretty[-2:]
-        elif pretty[-1].isdigit() and pretty[-2] != "_" and pretty[-2] != ".":
+        elif pretty[-1].isdigit() and pretty[-2] != "_":
             pretty = pretty[:-1] + "_" + pretty[-1]
 
     # Apply substitutions
