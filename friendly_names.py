@@ -137,6 +137,7 @@ substitutions = {
     "lavapop": "lava pop",
     "oxygene": "oxygène",
     "stereo": "(stereo)",
+    "music_box": "(music_box)",
     "unfect": "cure",
     "woodbreak": "door break",
     "appeared": "appear",
@@ -172,6 +173,7 @@ caps = {
     " Iii": " III",
     " Ii": " II",
     "Otherside": "otherside",
+    "Pokopoko": "pokopoko",
     "Can'T": "Can't",
 }
 
