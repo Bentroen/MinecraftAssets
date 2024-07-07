@@ -6,8 +6,9 @@
 import json
 import shutil
 import sys
-import requests
 from pathlib import Path
+
+import requests
 
 # Create a folder called 'files'
 if not shutil.os.path.exists("files"):

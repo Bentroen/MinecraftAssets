@@ -1,7 +1,6 @@
 import json
 from pathlib import Path
 
-
 # Get a dict of all sounds in the latest release {<path>: <hash>}
 
 with open(Path("files", "version_manifest.json"), "r") as f:

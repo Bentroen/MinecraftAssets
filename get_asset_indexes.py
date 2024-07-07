@@ -1,9 +1,9 @@
 import json
-from pathlib import Path
 import shutil
-import requests
-import dateutil
+from pathlib import Path
 
+import dateutil.parser
+import requests
 
 # Set to True to ignore snapshot versions
 IGNORE_SNAPSHOTS = False

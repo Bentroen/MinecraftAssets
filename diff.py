@@ -1,8 +1,7 @@
 import json
-from pathlib import Path
 import shutil
+from pathlib import Path
 from typing import Literal
-
 
 ONLY_SOUNDS = True
 

@@ -1,9 +1,9 @@
 import json
 import shutil
 import sys
-import requests
 from pathlib import Path
 
+import requests
 
 asset_indexes = {}
 asset_indexes_grouped = {}
