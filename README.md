@@ -104,7 +104,7 @@ This script reads the asset index of the latest Minecraft release and creates th
 
 ### [`asset_index_friendly_names.json`](asset_index_friendly_names.json)
 
-This is a list of friendly names for all currently released asset indexes (`17` being the latest as of this repository's creation).
+This is a list of friendly names for all currently released asset indexes (`17` being the latest as of this repository's creation; `19` as of its last update).
 
 It is used to give a more human-readable name to the asset indexes, as the names in the version manifest are not very descriptive. It names each asset index with its defining version, which was chosen using the following criteria:
 
@@ -120,6 +120,16 @@ Then, we process the name:
 
 As it was created manually, there's not a way to generate it automatically yet.
 
----
+## To-do
 
+- At around 1.21.4, some change was applied to the game's resources that caused the hashes of all existing sounds to change, despite them sounding the same. While the hash is an easy way to identify a particular sound, it can no longer be used to match a particular sound if one's looking at only the most recent asset index (for instance, the reference to the sound may have been created before the hash change, and as such looking for this sound in the most recent game files would yield no result). If a custom system is developed to allow stable references to sounds, it possibly has to take im
+-into account that multiple hashes can refer to what's, conceptually, the same sound (even if their contents are slightly different).
+
+- Create a script to auto-generate the asset index friendly names
+
+- Add GitHub action to run the scripts automatically and create artifacts/branches containing the output
+
+- Create scripts to find the sound name based on the hash (looking at multiple asset index versions if necessary), and vice-versa
+
+---
 License - [MIT](LICENSE)
